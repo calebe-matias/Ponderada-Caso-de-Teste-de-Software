@@ -19,7 +19,7 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
   async onModuleInit() {
     console.log('🔌 Conectando ao PostgreSQL...');
     try {
-      await this.pool.connect();
+      await this.pool.query('SELECT 1');
       console.log('✅ Conectado ao PostgreSQL!');
     } catch (error) {
       console.error('❌ Erro ao conectar no PostgreSQL:', error);
@@ -27,8 +27,9 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleDestroy() {
+    console.log('Fechando conexão com o PostgreSQL...');
     await this.pool.end();
-    console.log('🔌 Conexão com PostgreSQL encerrada.');
+    console.log('Conexão fechada com sucesso!');
   }
 
   async query(query: string, params?: any[]): Promise<any> {
