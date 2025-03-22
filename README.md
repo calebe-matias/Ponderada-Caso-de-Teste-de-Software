@@ -8,7 +8,8 @@ Este repositório contém o conteúdo da ponderada de Caso de Teste de Software,
 
 ### Localização da Documentação do Caso de Teste
 
-A documentação completa do caso de teste pode ser encontrada no arquivo [CASO_DE_TESTE.md](./CASO_DE_TESTE.md), que detalha o objetivo, pré-condições, procedimento, resultados esperados, resultados obtidos e pós-condição.
+A documentação completa do caso de teste pode ser encontrada no arquivo [CASO_DE_TESTE.md](./CASO_DE_TESTE.md), que detalha o objetivo, pré-condições, procedimento, resultados esperados, resultados obtidos e pós-condição. 
+Observação: Utilizei o `Jest` para realizar os testes automatizados.
 
 ### Descrição Resumida do Caso de Teste
 
