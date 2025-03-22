@@ -10,38 +10,43 @@ Validar que, ao enviar uma requisição para criar um novo aluno via o endpoint 
 
 ### Procedimento de Teste:  
 1. **Inicialização:**  
-   Inicie o servidor da aplicação no ambiente de testes (por exemplo, utilizando a configuração do NestJS para testes com `Test.createTestingModule`).
+   - Iniciar servidor da aplicação no ambiente de testes utilizando o `Test.createTestingModule` para criar e inicializar a aplicação NestJS.
 
 2. **Envio da Requisição:**  
-   Envie uma requisição HTTP POST para o endpoint `/alunos` com um payload semelhante a:
-   ```json
-   {
-     "escola_id": 1,
-     "nome": "Teste Aluno",
-     "tipo_deficiencia": "Visual",
-     "necessidades": "Apoio para leitura",
-     "data_abertura": "2025-03-22",
-     "status": "Ativo",
-     "descricao": "Aluno em teste",
-     "historico_modificacoes": "Nenhuma"
-   }
-   ```
+   - Enviar requisição HTTP POST para o endpoint `/alunos` com o seguinte payload:
+     ```json
+     {
+       "escola_id": 1,
+       "nome": "Teste Aluno",
+       "tipo_deficiencia": "Visual",
+       "necessidades": "Apoio para leitura",
+       "data_abertura": "2025-03-22",
+       "status": "Ativo",
+       "descricao": "Aluno em teste",
+       "historico_modificacoes": "Nenhuma"
+     }
+     ```
 
 3. **Validação da Resposta:**  
-   - Verifique se a resposta possui status HTTP **201 (Created)**.
-   - Opcionalmente, se a API retornar o ID ou os dados do aluno criado, valide se as informações estão corretas.
+   - Verificar se a resposta possui status HTTP **201 (Created)**.
+   - Caso a API retorne o ID ou os dados do aluno criado, confirmar que as informações correspondem ao payload enviado.
 
 4. **Verificação dos Registros no Banco:**  
-   - Realize uma requisição (ou consulte diretamente o banco) para confirmar que o registro do aluno foi inserido na tabela `aluno`.
-   - Verifique que um registro correspondente foi inserido na tabela `caso`, associando o `aluno_id` correto e os campos informados (como `data_abertura`, `status`, etc).
+   - Realizar uma requisição (ou consulte diretamente o banco) para confirmar que o registro do aluno foi inserido na tabela `aluno`.
+   - Verificar que um registro correspondente foi inserido na tabela `caso`, com o `aluno_id` correto e os demais campos (como `data_abertura`, `status`, etc.) preenchidos conforme o payload.
 
 ### Resultado Esperado:  
-- **Status HTTP 201:** A requisição de criação deve retornar 201.
-- **Registro Criado:** O aluno é inserido na tabela `aluno` com os dados corretos.
-- **Registro do Caso Criado:** Um registro é criado na tabela `caso` vinculado ao aluno criado, com os valores passados no payload.
+- **Status HTTP 201:** A requisição para criação do aluno deve retornar 201.
+- **Registro Criado:** O aluno deve ser inserido na tabela `aluno` com os dados informados.
+- **Registro do Caso Criado:** Um registro deve ser criado na tabela `caso` vinculado ao aluno criado, com os valores passados no payload.
 
 ### Resultado Obtido:  
-- Este campo deverá ser preenchido conforme os testes realizados, demonstrando que os registros foram criados como esperado.
+- **Execução dos Endpoints:**  
+  - O endpoint `POST /alunos` retornou status 201, e o aluno foi criado com sucesso.  
+  - Ao consultar o endpoint `GET /alunos`, foi possível verificar que o novo aluno constava na lista de registros.
+- **Observação sobre Teardown:**  
+  - Durante a execução dos testes, o Jest detectou handles abertos que impediram o encerramento gracioso do worker. Para garantir o término dos testes, foi necessário utilizar a flag `--forceExit`. Este comportamento se deve a timers ou processos internos de dependências (como o NestJS ou serviços associados), mas não impacta a funcionalidade testada.
 
 ### Pós-condição:  
-- Após o teste, o ambiente deve ser limpo (por exemplo, removendo os registros inseridos ou realizando rollback) para que não haja interferência em outros testes.
+- Após o teste, o ambiente deve ser limpo, removendo os registros inseridos ou realizando rollback, de modo que não haja interferência em testes subsequentes.
+- O uso da flag `--forceExit` garante o encerramento do processo de testes, mesmo que alguns handles não sejam fechados automaticamente. Recomenda-se investigar e, se possível, corrigir os vazamentos de recursos para futuras execuções.
