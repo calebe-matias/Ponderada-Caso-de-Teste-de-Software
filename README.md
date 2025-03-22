@@ -2,8 +2,7 @@
 
 ## Objetivo do Repositório
 
-Este repositório contém o conteúdo da ponderada de Caso de Teste de Software, que consiste em automatizar e documentar um Caso de Teste de Software relacionado ao projeto do módulo 5. O Caso de Teste escolhido foi o de Criação de Aluno e Registro de Caso Associado.	  
-Assim, o foco desta atividade é demonstrar, por meio de testes automatizados, que ao criar um aluno via API, o sistema registra corretamente os dados do aluno e simultaneamente cria um registro de caso associado na tabela `caso`.
+Este repositório contém o conteúdo da ponderada de Caso de Teste de Software, que consiste em automatizar e documentar um Caso de Teste de Software relacionado ao projeto do módulo 5. O Caso de Teste escolhido foi o de Criação de Aluno e Registro de Caso Associado. Assim, o foco desta atividade é demonstrar, por meio de testes automatizados, que ao criar um aluno via API, o sistema registra corretamente os dados do aluno e simultaneamente cria um registro de caso associado na tabela `caso`.
 
 ## O Caso de Teste
 
@@ -50,7 +49,7 @@ Este repositório contém apenas os arquivos necessários para demonstrar o Caso
 
 3. **Configuração das Variáveis de Ambiente:**
 
-   Crie um arquivo `.env` na raiz do projeto com as configurações necessárias para conectar ao banco de dados de testes.
+   Criar um arquivo `.env` na raiz do projeto com as configurações necessárias para conectar ao banco de dados de testes.
 
    ```env
     DB_USER=postgres.zqvnnnnpersqtlbziyts
@@ -70,10 +69,3 @@ Este repositório contém apenas os arquivos necessários para demonstrar o Caso
    # ou
    yarn test:e2e 
    ```
-
-
-## Considerações Finais
-
-Este repositório demonstra a execução de um Caso de Teste de Software específico, focado na criação de alunos e no registro de casos associados. A atividade visa evidenciar a correta integração entre a camada de API e o banco de dados, bem como a capacidade de automatizar a verificação desse fluxo.
-
-Para quaisquer dúvidas ou melhorias, sinta-se à vontade para abrir uma issue ou entrar em contato.
