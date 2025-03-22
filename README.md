@@ -8,8 +8,11 @@ Este repositório contém o conteúdo da ponderada de Caso de Teste de Software,
 
 ### Localização da Documentação do Caso de Teste
 
-A documentação completa do caso de teste pode ser encontrada no arquivo [CASO_DE_TESTE.md](./CASO_DE_TESTE.md), que detalha o objetivo, pré-condições, procedimento, resultados esperados, resultados obtidos e pós-condição. 
-Observação: Utilizei o `Jest` para realizar os testes automatizados.
+A documentação completa do caso de teste pode ser encontrada no arquivo [CASO_DE_TESTE.md](./CASO_DE_TESTE.md), que detalha o objetivo, pré-condições, procedimento, resultados esperados, resultados obtidos e pós-condição.
+
+O Código do Teste Automatizado pode ser encontrado em [test/aluno.e2e-spec.ts](./test/aluno.e2e-spec.ts).
+
+Observação: Utilizei o `Jest` para os testes e o `Supertest` para fazer as requisições HTTP.
 
 ### Descrição Resumida do Caso de Teste
 

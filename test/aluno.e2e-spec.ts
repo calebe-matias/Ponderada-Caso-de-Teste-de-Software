@@ -18,7 +18,6 @@ describe('Teste de Criação de Aluno e Registro de Caso (e2e)', () => {
   });
 
   afterAll(async () => {
-    // Se necessário, adicione lógica para limpar recursos pendentes.
     await app.close();
   });
 
